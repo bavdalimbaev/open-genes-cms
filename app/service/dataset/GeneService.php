@@ -100,7 +100,7 @@ class GeneService
     }
 
     public function addSourceToGene(array $data) {
-        if ($source = Source::find()->where('GeneAge')->one()) {
+        if ($source = Source::find()->where(['name' => 'GeneAge'])->one()) {
             foreach ($data as $item) {
                 $symbol = trim($item[0]);
                 if ($gene = Gene::find()->where(['symbol' => $symbol])->one()) {
